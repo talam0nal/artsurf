@@ -17,8 +17,8 @@ class CreateBeersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->text('description');
-            $table->text('image');
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
         });
     }
 
