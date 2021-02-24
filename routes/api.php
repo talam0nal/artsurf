@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BeerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('beers', [BeerController::class, 'index']);
+Route::get('beers/{id}', [BeerController::class, 'show']);
+
+Route::get('admin/beers', [BeerController::class, 'index']);
+Route::post('admin/beers', [BeerController::class, 'store']);
+Route::patch('admin/beers/{id}', [BeerController::class, 'update']);
+Route::delete('admin/beers/{id}', [BeerController::class, 'destroy']);
